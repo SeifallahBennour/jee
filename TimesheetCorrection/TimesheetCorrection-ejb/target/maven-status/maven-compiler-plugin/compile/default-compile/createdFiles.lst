@@ -1,0 +1,12 @@
+implservices\WinnerService.class
+implservices\UserService.class
+entities\Tache.class
+interfservices\TacheServiceRemote.class
+implservices\TacheService.class
+implservices\ProjectService.class
+entities\User.class
+entities\Winners.class
+interfservices\UserServiceRemote.class
+interfservices\WinnerServiceRemote.class
+entities\Project.class
+interfservices\ProjectServiceRemote.class

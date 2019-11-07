@@ -1,0 +1,44 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:f="http://xmlns.jcp.org/jsf/core"
+	   xmlns:h="http://xmlns.jcp.org/jsf/html"
+	   xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	   xmlns:jsf="http://xmlns.jcp.org/jsf"
+	   xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	      xmlns:b="http://bootsfaces.net/ui"
+	   xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+	
+	<title>Login </title></h:head>
+	<h:body>
+	<b:container fluid="true">
+	
+	<b:form horizontal="true">
+	<h:panelGrid columns="1" >
+  <b:inputText  placeholder="Username" required="true" label="Username"  colMd="10" labelColMd="2" value="#{userBean.login}">
+    <f:facet name="prepend">
+      <b:icon name="user" />
+    </f:facet>
+  </b:inputText>
+ 
+  <b:inputSecret  placeholder="Password" label="Password" colMd="10" labelColMd="2" value="#{userBean.mdp}">
+    <f:facet name="prepend">
+      <b:iconAwesome name="key" />
+    </f:facet>
+  </b:inputSecret>
+
+    <b:commandButton offset="4"  value="Login"  update="@none" look="info" style="width:80px" action="#{userBean.doLogin()}"/>
+
+	
+	     <b:navLink offset="4" value="Inscription"  href="inscription.jsf"></b:navLink>
+	
+
+</h:panelGrid>
+</b:form>
+ </b:container>
+	
+	 </h:body>
+</html>

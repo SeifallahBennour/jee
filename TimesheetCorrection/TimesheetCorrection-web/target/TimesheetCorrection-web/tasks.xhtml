@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:b="http://bootsfaces.net/ui"
+    xmlns:p="http://primefaces.org/ui"> 
+    <h:head>
+    <meta charset="utf-8" />
+        <title>Taches</title>
+        <h:outputStylesheet library="default" name="css/form.css"  />
+     </h:head>
+     
+     <h:body>
+     
+     <b:navBar brand="PM" brandHref="#" fluid="true">
+  <b:navbarLinks>
+    
+    <b:navLink value="Link" href="#"></b:navLink>
+    <b:dropMenu value="Projet" iconAwesome="fa-newspaper-o">
+      <b:navLink value="Ajouter" href="ajouterprojet.jsf"></b:navLink>
+      <b:navLink value="Consulter" href="allprojects.jsf"></b:navLink>
+    
+    </b:dropMenu>
+
+<b:dropMenu value="Tache" iconAwesome="fa-clipboard">
+      <b:navLink value="Ajouter" href="addtask.jsf"></b:navLink>
+      <b:navLink value="Consulter" href="tasks.jsf"></b:navLink>
+    
+    </b:dropMenu>
+
+
+
+<b:navLink value="Associer" href="taskproject.jsf"></b:navLink>
+
+<b:navLink value="Utilisateurs" href="users.jsf"></b:navLink>
+
+<b:navLink value="Ajouter un admin" href="addadmin.jsf"></b:navLink>
+
+
+
+
+
+  </b:navbarLinks>
+
+
+
+
+
+
+ <h:form>
+ 
+<b:commandButton value="Gagnant" action="#{tacheBean.getAllTaches()}"  />
+       
+       
+        </h:form>
+  <!-- Following line is needed for TBS 3.0.1 (panel content overflow issue) -->
+<b:navbarLinks pull="right"><b:navLink value="    " href="#"></b:navLink></b:navbarLinks>
+  <b:navbarLinks pull="right" styleClass="hidden-xs">
+    <b:navLink value="Meilleur Membre" href="winner.jsf"></b:navLink>
+    <b:dropMenu value="Plus">
+ <h:form id="form" >
+ 
+<b:commandButton value="Logout" ajax="true" action="#{userBean.doLogout()}" />
+        </h:form>
+      
+    </b:dropMenu>
+  </b:navbarLinks>
+</b:navBar>
+     
+     
+     
+     <h:form>
+  <b:dataTable value="#{tacheBean.toutetache()}"
+               var="car">
+    <b:dataTableColumn value="#{car.nom}"  label="Tache"/>
+    <b:dataTableColumn value="#{car.project.nomProject}" label="Projet"/>
+    <b:dataTableColumn value="#{tacheBean.getdiff(car.id)} points" label="Nombre de points"/>
+     <b:dataTableColumn value="#{car.dateFin}" label="Estimation"/>
+ 	<b:dataTableColumn value="#{car.date_fin_real}" label="Terminée réelement"/>
+  <b:dataTableColumn value="#{car.points} Points"  label="Nombre de points "/>
+ 
+
+ <b:dataTableColumn>
+ 
+  <f:facet name="header">
+        <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+          <li>Supprimer</li>
+          
+        </ul>
+      </f:facet>
+ 
+ <h:form id="form" >
+ 
+<b:commandButton value="Supprimer" ajax="true" action="#{tacheBean.deletetache(car.id)}" />
+        </h:form>
+ 
+ </b:dataTableColumn>
+ 
+   
+ 
+  </b:dataTable>
+</h:form>
+     
+
+     
+
+
+	</h:body>
+</html>
+ 
+ 
+	

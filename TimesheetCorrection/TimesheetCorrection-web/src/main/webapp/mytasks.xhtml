@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+
+    xmlns:p="http://primefaces.org/ui"> 
+    
+     <h:head>
+    <meta charset="utf-8" />
+    
+        <title>Mes Taches</title>
+        <h:outputStylesheet library="default" name="css/form.css"  />
+     </h:head>
+     
+     <h:body>
+
+
+  <b:navBar brand="PM" brandHref="#" fluid="true">
+  <b:navbarLinks>
+    
+    
+    
+
+
+
+
+  </b:navbarLinks>
+
+
+
+
+
+
+ <h:form>
+ 
+       
+       
+        </h:form>
+  <!-- Following line is needed for TBS 3.0.1 (panel content overflow issue) -->
+<b:navbarLinks pull="right"><b:navLink value="    " href="#"></b:navLink></b:navbarLinks>
+  <b:navbarLinks pull="right" styleClass="hidden-xs">
+    <b:navLink value="Meilleur Membre" href="winner.jsf"></b:navLink>
+    <b:dropMenu value="Plus">
+     <h:form id="form" >
+ 
+<b:commandButton value="Logout" ajax="true" action="#{userBean.doLogout()}" />
+        </h:form>
+    </b:dropMenu>
+  </b:navbarLinks>
+</b:navBar>
+     
+<h:form>
+  <b:dataTable value="#{userBean.getTachesbyuser(userBean.id)}"
+               var="ts">
+    <b:dataTableColumn value="#{ts.nom}" />
+    <b:dataTableColumn value="#{ts.project.nomProject}" />
+    <b:dataTableColumn value="#{tacheBean.getdiff(ts.id)} points" label="Points"/>
+     <b:dataTableColumn value="#{ts.daysleft}" label="Daysleft"/>
+
+ <b:dataTableColumn>
+ 
+  <f:facet name="header">
+        <ul style="margin-bottom:0;list-style-type:none;padding-left:0">
+          <li>Cliquez-ici si Tâche Terminée</li>
+          
+        </ul>
+      </f:facet>
+ 
+ <h:form id="form1" >
+ 
+<b:commandButton value="Terminée" ajax="true" action="#{tacheBean.modifdatereal(ts.id)}" />
+        </h:form>
+ 
+ </b:dataTableColumn>
+ 
+   
+ 
+  </b:dataTable>
+</h:form>
+
+</h:body>
+</html>

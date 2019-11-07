@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+    xmlns:p="http://primefaces.org/ui"> 
+    <h:head>
+        <meta charset="utf-8" />
+        <title>Inscription</title>
+      
+    </h:head>
+    <h:body>
+    
+      
+   <b:navBar brand="Brand" brandHref="#" fluid="true">
+  <b:navbarLinks>
+    
+    <b:navLink value="Link" href="#"></b:navLink>
+    <b:dropMenu value="Projet" iconAwesome="fa-newspaper-o">
+      <b:navLink value="Ajouter" href="ajouterprojet.jsf"></b:navLink>
+      <b:navLink value="Consulter" href="allprojects.jsf"></b:navLink>
+    
+    </b:dropMenu>
+
+<b:dropMenu value="Tache" iconAwesome="fa-clipboard">
+      <b:navLink value="Ajouter" href="addtask.jsf"></b:navLink>
+      <b:navLink value="Consulter" href="tasks.jsf"></b:navLink>
+    
+    </b:dropMenu>
+
+
+
+<b:navLink value="Associer" href="taskproject.jsf"></b:navLink>
+
+<b:navLink value="Utilisateurs" href="users.jsf"></b:navLink>
+
+<b:navLink value="Ajouter un admin" href="addadmin.jsf"></b:navLink>
+
+
+
+
+
+  </b:navbarLinks>
+
+
+
+
+
+
+ <h:form>
+ 
+<b:commandButton value="Gagnant" action="#{tacheBean.getAllTaches()}"  />
+       
+       
+        </h:form>
+  <!-- Following line is needed for TBS 3.0.1 (panel content overflow issue) -->
+<b:navbarLinks pull="right"><b:navLink value="    " href="#"></b:navLink></b:navbarLinks>
+  <b:navbarLinks pull="right" styleClass="hidden-xs">
+    <b:navLink value="Meilleur Membre" href="winner.jsf"></b:navLink>
+    <b:dropMenu value="Plus">
+      <h:form id="form" >
+ 
+<b:commandButton value="Logout" ajax="true" action="#{userBean.doLogout()}" />
+        </h:form>
+    </b:dropMenu>
+  </b:navbarLinks>
+</b:navBar>
+     
+    
+     
+     <b:well>
+
+  <b:form horizontal="true">
+    <b:inputText id="name" value="#{userBean.nom}" col-xs="8" col-md="10" label-col-xs="4" label-col-md="2"
+                 label="Votre Nom ?" required="true"  />
+    <b:inputText id="prenom" value="#{userBean.prenom}" tiny-screen="two-thirds" medium-screen="10" label-tiny-screen="one-third"
+                 label-medium-screen="2"
+                 label="Votre Prénom ?"  required="true" /> 
+                 
+    <b:inputText id="login" value="#{userBean.login}" tiny-screen="two-thirds" medium-screen="10" label-tiny-screen="one-third"
+                 label-medium-screen="2"
+                 label="Votre Login ?" required="true" />  
+                 
+      <b:inputSecret id="motdepasse" value="#{userBean.mdp}" tiny-screen="two-thirds" medium-screen="10" label-tiny-screen="one-third"
+                 label-medium-screen="2"
+                 label="Votre Mot de Passe ?" required="true"  />        
+                 
+       
+         <b:commandButton icon-spin="true" icon="cd" icon-size="2x"
+                     value="Ajouter admin" 
+                     look="info" title="icon-spin='true' icon-size='2x'" 
+                     action="#{userBean.addAdmin()}"
+                     />                              
+    
+  </b:form>
+</b:well>
+    
+    </h:body>
+</html>

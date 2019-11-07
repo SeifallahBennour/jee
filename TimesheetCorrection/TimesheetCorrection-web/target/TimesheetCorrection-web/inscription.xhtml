@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+    xmlns:p="http://primefaces.org/ui"> 
+    <h:head>
+        <meta charset="utf-8" />
+        <title>Inscription</title>
+      
+    </h:head>
+    <h:body>
+     
+     <b:well>
+
+  <b:form horizontal="true">
+    <b:inputText id="name" value="#{userBean.nom}" col-xs="8" col-md="10" label-col-xs="4" label-col-md="2"
+                 label="Votre Nom ?" required="true"  />
+    <b:inputText id="prenom" value="#{userBean.prenom}" tiny-screen="two-thirds" medium-screen="10" label-tiny-screen="one-third"
+                 label-medium-screen="2"
+                 label="Votre Prénom ?"  required="true" /> 
+                 
+    <b:inputText id="login" value="#{userBean.login}" tiny-screen="two-thirds" medium-screen="10" label-tiny-screen="one-third"
+                 label-medium-screen="2"
+                 label="Votre Login ?" required="true" />  
+                 
+      <b:inputSecret id="motdepasse" value="#{userBean.mdp}" tiny-screen="two-thirds" medium-screen="10" label-tiny-screen="one-third"
+                 label-medium-screen="2"
+                 label="Votre Mot de Passe ?" required="true"  />        
+                 
+       
+         <b:commandButton icon-spin="true" icon="cd" icon-size="2x"
+                     value="Inscription" 
+                     look="info" title="icon-spin='true' icon-size='2x'" 
+                     action="#{userBean.addUser()}"
+                     />    
+                     
+     <b:navLink value="Vouz-Avez un Compte ?" href="Login.jsf"></b:navLink>
+                                               
+    
+  </b:form>
+</b:well>
+    
+    </h:body>
+</html>
